@@ -93,7 +93,5 @@ fun getCategories(id: String): Single<List<SubCategory>> {
         SubCategory(2, "Tech"),
         SubCategory(3, "Groceries")
     )
-    return if (id == "Man") {
-        Single.just(subCategories)
-    } else Single.just(emptyList())
+   return Single.just(subCategories.takeIf { id=="Man" }.orEmpty())
 }

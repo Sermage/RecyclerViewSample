@@ -6,7 +6,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_layout.view.*
 
-class Adapter(val items: MutableList<String>) : RecyclerView.Adapter<Adapter.ViewHolder>() {
+class Adapter() : RecyclerView.Adapter<Adapter.ViewHolder>() {
+
+    var items = listOf<String>()
+        set(value) {
+            field=value
+            notifyDataSetChanged()
+        }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val itemTextView = itemView.item_text_view
